@@ -15,8 +15,8 @@ public final class Constants {
     public static final int BALL_WIDTH = 40;
     public static final int BALL_HEIGHT = 40;
 
-
-
-
+    // Player
+    public static final int PLAYER_WIDTH = 10;
+    public static final int PLAYER_HEIGHT = 25;
 
 }

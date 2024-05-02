@@ -25,6 +25,9 @@ public abstract class Sprite {
         size = new Dimension(width, height);
     }
 
+    public Sprite(int i, int i1, int playerWidth, int playerHeight) {
+    }
+
     private void loadImage(String imagePath) {
         try {
             image = ImageIO.read(new File(imagePath));
