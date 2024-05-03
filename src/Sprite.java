@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.IOException;
 
 public abstract class Sprite {
-
     protected Point pos;
     protected Dimension size;
     private BufferedImage image;
