@@ -31,7 +31,10 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        for(Sprite sprite : sprites) {
+            sprite.tick();
+        }
+        repaint();
     }
 
     @Override
@@ -50,11 +53,15 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent keyEvent) {
-        activeKeyCodes.remove(keyEvent.getKeyCode());
+        int keyCode = keyEvent.getKeyCode();
+
+        if (keyCode == keyEvent.VK_UP){
+
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent keyEvent) {
-        activeKeyCodes.remove(keyEvent.getKeyCode());
+
     }
 }

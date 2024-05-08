@@ -4,8 +4,8 @@ import static src.utils.Constants.*;
 
 public class Ball extends Sprite {
 
-    private int vx;
-    private int vy;
+    private final int vx;
+    private final int vy;
 
     public Ball(int x, int y) {
         super(BALL_IMAGE_PATH, x, y, BALL_WIDTH, BALL_HEIGHT);

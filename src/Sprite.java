@@ -27,6 +27,15 @@ public abstract class Sprite {
     public Sprite(int i, int i1, int playerWidth, int playerHeight) {
     }
 
+    public Sprite() {
+
+    }
+
+    public void Player(){
+        Player rightPaddle = new Player(10, 200, 75, 3, Color.BLUE);
+        Player leftPaddle = new Player(610, 200, 75, 3, Color.RED);
+    }
+
     private void loadImage(String imagePath) {
         try {
             image = ImageIO.read(new File(imagePath));
