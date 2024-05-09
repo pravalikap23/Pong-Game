@@ -14,13 +14,17 @@ public abstract class Sprite {
 
     public Sprite(String imagePath, int x, int y) {
         pos = new Point(x, y);
-        loadImage(imagePath);
+        if (imagePath != null) {
+            loadImage(imagePath);
+        }
         size = new Dimension(image.getWidth(), image.getHeight());
     }
 
     public Sprite(String imagePath, int x, int y, int width, int height) {
         pos = new Point(x, y);
-        loadImage(imagePath);
+        if (imagePath != null) {
+            loadImage(imagePath);
+        }
         size = new Dimension(width, height);
     }
 
@@ -31,10 +35,6 @@ public abstract class Sprite {
 
     }
 
-    public void Player(){
-        Player rightPaddle = new Player(10, 200, 75, 3, Color.BLUE);
-        Player leftPaddle = new Player(610, 200, 75, 3, Color.RED);
-    }
 
     private void loadImage(String imagePath) {
         try {

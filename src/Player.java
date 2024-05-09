@@ -1,6 +1,7 @@
 package src;
 
 import java.awt.*;
+import java.awt.image.ImageObserver;
 
 import static src.utils.Constants.*;
 
@@ -13,7 +14,7 @@ public class Player extends Sprite{
     private Player rightPaddle, leftPaddle;
 
     public Player(int x, int y, int height, int speed, Color colour){
-        super(PLAYER_IMAGE_PATH, 0, 0, PLAYER_WIDTH, PLAYER_HEIGHT);
+        super(null, 0, 0, PLAYER_WIDTH, PLAYER_HEIGHT);
         this.x = x;
         this.y = y;
         this.height = height;
@@ -21,7 +22,8 @@ public class Player extends Sprite{
         this.colour = colour;
     }
 
-    public void paint(Graphics graphics){
+    @Override
+    public void draw(Graphics graphics, ImageObserver observer) {
         graphics.setColor(colour);
         int PADDLE_WIDTH = 15;
         graphics.fillRect(x, y, PADDLE_WIDTH, height);

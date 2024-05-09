@@ -22,7 +22,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         setBackground(Color.black);
 
         ball = new Ball(BOARD_WIDTH / 2 - BALL_WIDTH / 2, BOARD_HEIGHT / 2 - BALL_HEIGHT / 2);
-        sprites = new ArrayList<>(List.of(ball));
+
+        Player rightPaddle = new Player(10, 200, 75, 3, Color.white);
+        Player leftPaddle = new Player(610, 200, 75, 3, Color.white);
+
+        sprites = new ArrayList<>(List.of(ball, rightPaddle, leftPaddle));
 
         activeKeyCodes = new HashSet<>();
 

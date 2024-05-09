@@ -18,5 +18,4 @@ public final class Constants {
     // Player
     public static final int PLAYER_WIDTH = 15;
     public static final int PLAYER_HEIGHT = 25;
-    public static final String PLAYER_IMAGE_PATH = "resources/paddle.png";
 }
