@@ -17,5 +17,6 @@ public final class Constants {
 
     // Player
     public static final int PLAYER_WIDTH = 15;
-    public static final int PLAYER_HEIGHT = 25;
+    public static final int PLAYER_HEIGHT = 75;
+    public static final int PADDLE_SPEED = 20;
 }

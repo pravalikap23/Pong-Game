@@ -15,7 +15,9 @@ import static src.utils.Constants.*;
 public class Board extends JPanel implements ActionListener, KeyListener {
     private final Ball ball;
     private final List<Sprite> sprites;
-    private final Set<Integer> activeKeyCodes;
+
+    Player leftPaddle;
+    Player rightPaddle;
 
     public Board(){
         setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
@@ -23,12 +25,10 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
         ball = new Ball(BOARD_WIDTH / 2 - BALL_WIDTH / 2, BOARD_HEIGHT / 2 - BALL_HEIGHT / 2);
 
-        Player rightPaddle = new Player(10, 200, 75, 3, Color.white);
-        Player leftPaddle = new Player(610, 200, 75, 3, Color.white);
+        leftPaddle = new Player(10, 200, 75, 3, Color.BLUE);
+        rightPaddle = new Player(610, 200, 75, 3, Color.BLUE);
 
         sprites = new ArrayList<>(List.of(ball, rightPaddle, leftPaddle));
-
-        activeKeyCodes = new HashSet<>();
 
         new Timer(TICK_DELAY, this).start();
     }
@@ -59,8 +59,16 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent keyEvent) {
         int keyCode = keyEvent.getKeyCode();
 
-        if (keyCode == keyEvent.VK_UP){
+        if (keyCode == KeyEvent.VK_UP) {
+            rightPaddle.moveUp();
+        } else if (keyCode == KeyEvent.VK_DOWN){
+            rightPaddle.moveDown();
+        }
 
+        if (keyCode == KeyEvent.VK_W){
+            leftPaddle.moveUp();
+        } else if (keyCode == KeyEvent.VK_S){
+            leftPaddle.moveDown();
         }
     }
 
