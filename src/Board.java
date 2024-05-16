@@ -15,9 +15,10 @@ import static src.utils.Constants.*;
 public class Board extends JPanel implements ActionListener, KeyListener {
     private final Ball ball;
     private final List<Sprite> sprites;
-
     Player leftPaddle;
     Player rightPaddle;
+    private double vx;
+    private double vy;
 
     public Board(){
         setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
@@ -38,6 +39,16 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         for(Sprite sprite : sprites) {
             sprite.tick();
         }
+
+        if (ball.isColliding(leftPaddle)) {
+            // move the ball right - move vx negative
+
+
+        } else if (ball.isColliding(rightPaddle)) {
+            // move the ball left -  make vx positive
+        }
+        // else if colliding with walls - reverse vy
+
         repaint();
     }
 
