@@ -41,11 +41,10 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         }
 
         if (ball.isColliding(leftPaddle)) {
-            // move the ball right - move vx negative
-
-
+            ball.bounceRight();
         } else if (ball.isColliding(rightPaddle)) {
-            // move the ball left -  make vx positive
+            ball.bounceLeft();
+
         }
         // else if colliding with walls - reverse vy
 

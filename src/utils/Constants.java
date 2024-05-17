@@ -1,5 +1,7 @@
 package src.utils;
 
+import static java.awt.Color.black;
+
 public final class Constants {
     private Constants(){
         // prevents instantiation
@@ -19,4 +21,8 @@ public final class Constants {
     public static final int PLAYER_WIDTH = 15;
     public static final int PLAYER_HEIGHT = 75;
     public static final int PADDLE_SPEED = 20;
+
+    // Wall
+    public static final int WALL_WIDTH = 15;
+    public static final int WALL_HEIGHT = 0;
 }

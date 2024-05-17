@@ -35,7 +35,6 @@ public abstract class Sprite {
 
     }
 
-
     private void loadImage(String imagePath) {
         try {
             image = ImageIO.read(new File(imagePath));
