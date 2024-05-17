@@ -29,6 +29,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         leftPaddle = new Player(10, 200, 75, 3, Color.BLUE);
         rightPaddle = new Player(610, 200, 75, 3, Color.BLUE);
 
+
         sprites = new ArrayList<>(List.of(ball, rightPaddle, leftPaddle));
 
         new Timer(TICK_DELAY, this).start();
