@@ -17,6 +17,10 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private final List<Sprite> sprites;
     Player leftPaddle;
     Player rightPaddle;
+
+    Wall topWall;
+    Wall bottomWall;
+
     private double vx;
     private double vy;
 
@@ -29,8 +33,10 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         leftPaddle = new Player(10, 200, 75, 3, Color.BLUE);
         rightPaddle = new Player(610, 200, 75, 3, Color.BLUE);
 
+        topWall = new Wall(0, 0, Color.RED);
+        bottomWall = new Wall(0, BOARD_HEIGHT - WALL_HEIGHT, Color.RED);
 
-        sprites = new ArrayList<>(List.of(ball, rightPaddle, leftPaddle));
+        sprites = new ArrayList<>(List.of(ball, rightPaddle, leftPaddle, topWall, bottomWall));
 
         new Timer(TICK_DELAY, this).start();
     }

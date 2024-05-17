@@ -23,6 +23,5 @@ public final class Constants {
     public static final int PADDLE_SPEED = 20;
 
     // Wall
-    public static final int WALL_WIDTH = 15;
-    public static final int WALL_HEIGHT = 0;
+    public static final int WALL_HEIGHT = 50;
 }
