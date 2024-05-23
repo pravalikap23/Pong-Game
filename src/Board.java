@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 import static src.utils.Constants.*;
+
 public class Board extends JPanel implements ActionListener, KeyListener {
     private final Ball ball;
     private final List<Sprite> sprites;
@@ -23,9 +24,8 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     Wall topWall;
     Wall bottomWall;
 
-    private double vx;
-    private double vy;
     private int rally;
+    private int highscore;
 
     public Board(){
         setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
@@ -40,6 +40,8 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         bottomWall = new Wall(0, BOARD_HEIGHT - WALL_HEIGHT, Color.BLACK);
 
         sprites = new ArrayList<>(List.of(ball, rightPaddle, leftPaddle, topWall, bottomWall));
+
+        highscore = Rally.getHighrally();
 
         new Timer(TICK_DELAY, this).start();
     }
@@ -63,16 +65,25 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         }
         // else if colliding with walls - reverse vy
 
-        if (ball.getPos().x > BOARD_WIDTH) {
-            ball.getPos().x = BOARD_WIDTH / 2;
-            ball.getPos().y = BOARD_HEIGHT / 2;
+        if (ball.getPos().x - BALL_WIDTH > BOARD_WIDTH) {
+            resetBall();
             leftPaddle.setScore(leftPaddle.getScore() + 1);
          } else if (ball.getPos().x < 0){
-            ball.getPos().x = BOARD_WIDTH / 2;
-            ball.getPos().y = BOARD_HEIGHT / 2;
+            resetBall();
             rightPaddle.setScore(rightPaddle.getScore() + 1);
         }
         repaint();
+    }
+
+    private void resetBall() {
+        ball.getPos().x = BOARD_WIDTH / 2;
+        ball.getPos().y = BOARD_HEIGHT / 2;
+
+        if (rally > highscore) {
+            Rally.writeNewHighRally(rally);
+            highscore = rally;
+        }
+        rally = 0;
     }
 
     @Override
@@ -92,7 +103,8 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         graphics.setFont(new Font(graphics.getFont().getFontName(), Font.PLAIN, 23));
         graphics.drawString("Pong Game", 265, 27);
         graphics.setFont(new Font(graphics.getFont().getFontName(), Font.PLAIN, 17));
-        graphics.drawString("Highest Rally: "+ rally, 245, 55);
+        graphics.drawString("Rally: "+ rally, 245, 55);
+        graphics.drawString("Highest Rally: "+ highscore, 245, 75);
 
         graphics.setFont(new Font(graphics.getFont().getFontName(), Font.PLAIN, 15));
         graphics.drawString("Player 1: " + leftPaddle.getScore(), 90, 35);
@@ -107,6 +119,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent keyEvent) {
+
     }
 
     @Override

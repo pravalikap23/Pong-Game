@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class App {
     public static void main (String[] args){
-        JFrame window = new JFrame("Ping Pong");
+        JFrame window = new JFrame("Ping Pong Game");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Board board = new Board();

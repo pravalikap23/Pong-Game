@@ -5,13 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Rally {
-    public static void main(String[] args){
-        int highrally = getHighrally();
-
-        System.out.println("Current High Rally: " + highrally);
-
-    }
-    private static int getHighrally(){
+    public static int getHighrally(){
         try {
             File highrallyFile = new File("resources/highrally.txt");
 
@@ -25,13 +19,7 @@ public class Rally {
         }
     }
 
-    private static int getNewRally(){
-        System.out.print("Enter new rally: ");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
-    }
-
-    private static void writeNewHighRally(int newHighrally){
+    public static void writeNewHighRally(int newHighrally){
         try{
             FileWriter fileWriter = new FileWriter("resources/highrally.txt");
             fileWriter.write(Integer.toString(newHighrally));
