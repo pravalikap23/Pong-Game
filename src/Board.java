@@ -25,6 +25,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     private double vx;
     private double vy;
+    private int rally;
 
     public Board(){
         setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
@@ -51,7 +52,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
         if (ball.isColliding(leftPaddle)) {
             ball.bounceRight();
+            rally += 1;
         } else if (ball.isColliding(rightPaddle)) {
+            rally += 1;
             ball.bounceLeft();
         } else if (ball.isColliding(topWall)) {
             ball.bounceDown();
@@ -64,7 +67,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
             ball.getPos().x = BOARD_WIDTH / 2;
             ball.getPos().y = BOARD_HEIGHT / 2;
             leftPaddle.setScore(leftPaddle.getScore() + 1);
-        } else if (ball.getPos().x < 0){
+         } else if (ball.getPos().x < 0){
             ball.getPos().x = BOARD_WIDTH / 2;
             ball.getPos().y = BOARD_HEIGHT / 2;
             rightPaddle.setScore(rightPaddle.getScore() + 1);
@@ -89,7 +92,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         graphics.setFont(new Font(graphics.getFont().getFontName(), Font.PLAIN, 23));
         graphics.drawString("Pong Game", 265, 27);
         graphics.setFont(new Font(graphics.getFont().getFontName(), Font.PLAIN, 17));
-        graphics.drawString("Highest Rally: ", 245, 55);
+        graphics.drawString("Highest Rally: "+ rally, 245, 55);
 
         graphics.setFont(new Font(graphics.getFont().getFontName(), Font.PLAIN, 15));
         graphics.drawString("Player 1: " + leftPaddle.getScore(), 90, 35);
