@@ -11,10 +11,12 @@ public class Player extends Sprite{
     private double dx;
     private double dy;
     private final Color colour;
+    private int score;
 
     public Player(int x, int y, int height, int speed, Color colour){
         super(null, x, y, PLAYER_WIDTH, PLAYER_HEIGHT);
         this.colour = colour;
+        this.score = 0;
     }
 
     @Override
@@ -45,5 +47,13 @@ public class Player extends Sprite{
             dx /= Math.sqrt(2);
             dy /= Math.sqrt(2);
         }
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

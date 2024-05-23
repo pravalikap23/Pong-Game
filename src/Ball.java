@@ -22,11 +22,21 @@ public class Ball extends Sprite {
 
     public void bounceLeft() {
         // update to something
-        vx = -10;
+        vx = -8;
     }
 
     public void bounceRight() {
         // update to something
-        vx = 10;
+        vx = 8;
+    }
+
+    public void bounceDown() {
+        // update to something
+        vy = 8;
+    }
+
+    public void bounceUp() {
+        // update to something
+        vy = -8;
     }
 }
