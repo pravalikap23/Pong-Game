@@ -37,8 +37,8 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         leftPaddle = new Player(10, 200, 75, 3, Color.BLUE);
         rightPaddle = new Player(610, 200, 75, 3, Color.BLUE);
 
-        topWall = new Wall(0, 0, Color.BLACK);
-        bottomWall = new Wall(0, BOARD_HEIGHT - WALL_HEIGHT, Color.BLACK);
+        topWall = new Wall(0, 0, Color.WHITE);
+        bottomWall = new Wall(0, BOARD_HEIGHT - WALL_HEIGHT, Color.WHITE);
 
         sprites = new ArrayList<>(List.of(ball, rightPaddle, leftPaddle, topWall, bottomWall));
 
@@ -109,7 +109,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                 BasicStroke.JOIN_MITER, 1.0f, dashingPattern2, 0.0f);
 
         graphics.setFont(new Font(graphics.getFont().getFontName(), Font.PLAIN, 23));
+        graphics.setColor(Color.RED);
         graphics.drawString("Pong Game", 265, 27);
+
         graphics.setFont(new Font(graphics.getFont().getFontName(), Font.PLAIN, 17));
         graphics.drawString("Rally: "+ rally, 245, 55);
         graphics.drawString("Highest Rally: "+ highscore, 245, 75);
@@ -125,15 +127,15 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         g2d.draw(new Line2D.Double((double) BOARD_WIDTH / 2, 0, (double) BOARD_WIDTH / 2, BOARD_HEIGHT));
 
         if (leftPaddle.getScore() == 11) {
-            graphics.setColor(Color.WHITE);
+            graphics.setColor(Color.BLUE);
             graphics.drawRect((BOARD_WIDTH / 2) - 100, 100, 100, 100);
-            graphics.setColor(Color.WHITE);
+            graphics.setColor(Color.BLUE);
             graphics.drawString("Player 1 won", (BOARD_WIDTH / 2) - 90, 150);
             running = false;
         } else if (rightPaddle.getScore() == 11) {
-            graphics.setColor(Color.WHITE);
+            graphics.setColor(Color.BLUE);
             graphics.drawRect((BOARD_WIDTH / 2) - 100, 100, 100, 100);
-            graphics.setColor(Color.WHITE);
+            graphics.setColor(Color.BLUE);
             graphics.drawString("Player 2 won", (BOARD_WIDTH / 2) - 90, 150);
             running = false;
         }
