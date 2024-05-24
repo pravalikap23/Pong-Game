@@ -4,8 +4,8 @@ import static src.utils.Constants.*;
 
 public class Ball extends Sprite {
 
-    private int vx;
-    private int vy;
+    private double vx;
+    private double vy;
 
     public Ball(int x, int y) {
         super(BALL_IMAGE_PATH, x, y, BALL_WIDTH, BALL_HEIGHT);
@@ -17,36 +17,36 @@ public class Ball extends Sprite {
 
     @Override
     public void tick() {
-        pos.translate(vx, vy);
+        pos.translate((int)vx, (int)vy);
     }
 
     public void bounceLeft() {
         // update to something
-        vx = -8;
+        vx = -(Math.abs(vx) * 1.05);
     }
 
     public void bounceRight() {
         // update to something
-        vx = 8;
+        vx = Math.abs(vx) * 1.05;
     }
 
     public void bounceDown() {
         // update to something
-        vy = 8;
+        vy = 9;
     }
 
     public void bounceUp() {
         // update to something
-        vy = -8;
+        vy = -9;
     }
 
     public void moveRight() {
-        vx = 8;
-        vy = 8;
+        vx = 9;
+        vy = 9;
     }
 
     public void moveLeft() {
-        vx = -8;
-        vy = -8;
+        vx = -9;
+        vy = -9;
     }
 }
