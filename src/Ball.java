@@ -39,4 +39,14 @@ public class Ball extends Sprite {
         // update to something
         vy = -8;
     }
+
+    public void moveRight() {
+        vx = 8;
+        vy = 8;
+    }
+
+    public void moveLeft() {
+        vx = -8;
+        vy = -8;
+    }
 }
